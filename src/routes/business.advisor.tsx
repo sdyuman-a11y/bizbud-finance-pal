@@ -191,7 +191,7 @@ function AdvisorPage() {
             </div>
             <div className={`mt-4 h-2 w-full overflow-hidden rounded-full bg-muted`}>
               <div
-                className={`h-full rounded-full bg-${tone}`}
+                className="h-full rounded-full"
                 style={{
                   width: `${Math.min(100, r.safeAmount > 0 ? (num(f.requestedAmount) / r.safeAmount) * 100 : 100)}%`,
                   backgroundColor: `var(--${tone})`,

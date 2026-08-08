@@ -10,12 +10,24 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BusinessIndexRouteImport } from './routes/business.index'
+import { Route as BusinessAdvisorRouteImport } from './routes/business.advisor'
 import { Route as IndividualIndexRouteImport } from './routes/individual.index'
 import { Route as IndividualLoansRouteImport } from './routes/individual.loans'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessIndexRoute = BusinessIndexRouteImport.update({
+  id: '/business/',
+  path: '/business/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessAdvisorRoute = BusinessAdvisorRouteImport.update({
+  id: '/business/advisor',
+  path: '/business/advisor',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndividualIndexRoute = IndividualIndexRouteImport.update({
@@ -31,31 +43,55 @@ const IndividualLoansRoute = IndividualLoansRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/business/advisor': typeof BusinessAdvisorRoute
   '/individual/loans': typeof IndividualLoansRoute
+  '/business/': typeof BusinessIndexRoute
   '/individual/': typeof IndividualIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/business/advisor': typeof BusinessAdvisorRoute
   '/individual/loans': typeof IndividualLoansRoute
+  '/business': typeof BusinessIndexRoute
   '/individual': typeof IndividualIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/business/advisor': typeof BusinessAdvisorRoute
   '/individual/loans': typeof IndividualLoansRoute
+  '/business/': typeof BusinessIndexRoute
   '/individual/': typeof IndividualIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/individual/loans' | '/individual/'
+  fullPaths:
+    | '/'
+    | '/business/advisor'
+    | '/individual/loans'
+    | '/business/'
+    | '/individual/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/individual/loans' | '/individual'
-  id: '__root__' | '/' | '/individual/loans' | '/individual/'
+  to:
+    | '/'
+    | '/business/advisor'
+    | '/individual/loans'
+    | '/business'
+    | '/individual'
+  id:
+    | '__root__'
+    | '/'
+    | '/business/advisor'
+    | '/individual/loans'
+    | '/business/'
+    | '/individual/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BusinessAdvisorRoute: typeof BusinessAdvisorRoute
   IndividualLoansRoute: typeof IndividualLoansRoute
+  BusinessIndexRoute: typeof BusinessIndexRoute
   IndividualIndexRoute: typeof IndividualIndexRoute
 }
 
@@ -66,6 +102,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/business/': {
+      id: '/business/'
+      path: '/business'
+      fullPath: '/business/'
+      preLoaderRoute: typeof BusinessIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/business/advisor': {
+      id: '/business/advisor'
+      path: '/business/advisor'
+      fullPath: '/business/advisor'
+      preLoaderRoute: typeof BusinessAdvisorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/individual/': {
@@ -87,7 +137,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BusinessAdvisorRoute: BusinessAdvisorRoute,
   IndividualLoansRoute: IndividualLoansRoute,
+  BusinessIndexRoute: BusinessIndexRoute,
   IndividualIndexRoute: IndividualIndexRoute,
 }
 export const routeTree = rootRouteImport
