@@ -173,9 +173,12 @@ function BudgetPlanner() {
                       data={r.breakdown}
                       dataKey="value"
                       nameKey="name"
+                      cx="50%"
+                      cy="50%"
                       innerRadius={55}
                       outerRadius={95}
                       paddingAngle={2}
+                      isAnimationActive={false}
                     >
                       {r.breakdown.map((_, i) => (
                         <Cell key={i} fill={CHART_COLORS[i % CHART_COLORS.length]} />
