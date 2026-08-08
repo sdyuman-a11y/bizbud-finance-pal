@@ -118,7 +118,7 @@ export function analyzeCashflow(months: CashflowMonth[], openingCash: number) {
   const profit = revenue - expenses;
   const margin = revenue > 0 ? (profit / revenue) * 100 : 0;
   const avgBurn = rows.length ? expenses / rows.length : 0;
-  const closing = rows.length ? rows[rows.length - 1].cash : openingCash;
+  const closing = rows.length ? (rows[rows.length - 1]?.cash ?? openingCash) : openingCash;
   const avgNet = rows.length ? profit / rows.length : 0;
   const runway = avgNet < 0 ? closing / Math.abs(avgNet) : Infinity;
   return { rows, revenue, expenses, profit, margin, avgBurn, closing, runway };
