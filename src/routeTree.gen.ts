@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as IndividualIndexRouteImport } from './routes/individual.index'
+import { Route as IndividualLoansRouteImport } from './routes/individual.loans'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IndividualIndexRoute = IndividualIndexRouteImport.update({
+  id: '/individual/',
+  path: '/individual/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndividualLoansRoute = IndividualLoansRouteImport.update({
+  id: '/individual/loans',
+  path: '/individual/loans',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/individual/loans': typeof IndividualLoansRoute
+  '/individual/': typeof IndividualIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/individual/loans': typeof IndividualLoansRoute
+  '/individual': typeof IndividualIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/individual/loans': typeof IndividualLoansRoute
+  '/individual/': typeof IndividualIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/individual/loans' | '/individual/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/individual/loans' | '/individual'
+  id: '__root__' | '/' | '/individual/loans' | '/individual/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  IndividualLoansRoute: typeof IndividualLoansRoute
+  IndividualIndexRoute: typeof IndividualIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/individual/': {
+      id: '/individual/'
+      path: '/individual'
+      fullPath: '/individual/'
+      preLoaderRoute: typeof IndividualIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/individual/loans': {
+      id: '/individual/loans'
+      path: '/individual/loans'
+      fullPath: '/individual/loans'
+      preLoaderRoute: typeof IndividualLoansRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  IndividualLoansRoute: IndividualLoansRoute,
+  IndividualIndexRoute: IndividualIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

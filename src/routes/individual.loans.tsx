@@ -37,8 +37,6 @@ const initial: Bank[] = [
   { id: "c", name: "Meridian Finance", amount: 25000, rate: 9.8, years: 4, fees: 0 },
 ];
 
-export default function noop() {}
-
 function LoanComparison() {
   const [banks, setBanks] = useState<Bank[]>(initial);
 
@@ -69,7 +67,7 @@ function LoanComparison() {
         <Stat
           label="Cheapest offer"
           value={best ? best.bank.name : "—"}
-          hint={best ? `${currency(best.totalRepayment)} total` : undefined}
+          hint={best ? `${currency(best.totalRepayment)} total` : ""}
           tone="positive"
         />
         <Stat label="Potential saving" value={currency(savings)} hint="vs. most expensive offer" />
