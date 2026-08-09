@@ -29,26 +29,30 @@ export function AppShell({
             </span>
             <span className="font-display text-lg font-semibold tracking-tight">Biz-Bud</span>
           </Link>
-          <nav className="flex items-center gap-1 rounded-full border border-border bg-card p-1">
-            {tabs.map((t) => {
-              const active = pathname === t.to;
-              return (
-                <Link
-                  key={t.to}
-                  to={t.to}
-                  className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors sm:text-sm ${
-                    active
-                      ? "bg-primary text-primary-foreground"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {t.label}
-                </Link>
-              );
-            })}
-          </nav>
+          <div className="flex items-center gap-2">
+            <nav className="flex items-center gap-1 rounded-full border border-border bg-card p-1">
+              {tabs.map((t) => {
+                const active = pathname === t.to;
+                return (
+                  <Link
+                    key={t.to}
+                    to={t.to}
+                    className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors sm:text-sm ${
+                      active
+                        ? "bg-primary text-primary-foreground"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {t.label}
+                  </Link>
+                );
+              })}
+            </nav>
+            <HeaderControls />
+          </div>
         </div>
       </header>
+
 
       <main className="mx-auto max-w-6xl px-5 py-8 sm:py-12">
         <div className="mb-8">
