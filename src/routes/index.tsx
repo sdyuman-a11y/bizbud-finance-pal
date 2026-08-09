@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { User, Building2, ArrowRight, Wallet, Sparkles } from "lucide-react";
+import { HeaderControls } from "@/components/header-controls";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -26,12 +28,16 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="mx-auto flex w-full max-w-6xl items-center gap-2.5 px-5 py-6">
-        <span className="ink-panel flex size-9 items-center justify-center rounded-xl">
-          <Wallet className="size-4.5" />
-        </span>
-        <span className="font-display text-lg font-semibold tracking-tight">Biz-Bud</span>
+      <header className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-5 py-6">
+        <div className="flex items-center gap-2.5">
+          <span className="ink-panel flex size-9 items-center justify-center rounded-xl">
+            <Wallet className="size-4.5" />
+          </span>
+          <span className="font-display text-lg font-semibold tracking-tight">Biz-Bud</span>
+        </div>
+        <HeaderControls />
       </header>
+
 
       <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-5 pb-16">
         <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground uppercase">
