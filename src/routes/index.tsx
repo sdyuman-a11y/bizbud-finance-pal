@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { User, Building2, ArrowRight, Wallet } from "lucide-react";
+import { User, Building2, ArrowRight, Wallet, Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
