@@ -1,6 +1,8 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { Wallet } from "lucide-react";
+import { HeaderControls } from "@/components/header-controls";
+
 
 type Tab = { to: string; label: string };
 
