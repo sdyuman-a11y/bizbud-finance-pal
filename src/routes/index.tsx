@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { User, Building2, ArrowRight, Wallet } from "lucide-react";
+import { User, Building2, ArrowRight, Wallet, Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -63,6 +63,24 @@ function Index() {
             points={["Cash flow analyzer", "Bank advisor"]}
           />
         </div>
+
+        <Link
+          to="/chat"
+          className="surface group mt-5 flex items-center justify-between gap-4 p-5 transition-transform hover:-translate-y-1"
+        >
+          <span className="flex items-center gap-4">
+            <span className="ink-panel flex size-11 items-center justify-center rounded-xl">
+              <Sparkles className="size-5" />
+            </span>
+            <span>
+              <span className="block text-lg font-semibold">Bizz-Chat</span>
+              <span className="block text-sm text-muted-foreground">
+                AI assistant for logical thinking questions, puzzles and money decisions.
+              </span>
+            </span>
+          </span>
+          <ArrowRight className="size-4 shrink-0 transition-transform group-hover:translate-x-1" />
+        </Link>
       </main>
     </div>
   );

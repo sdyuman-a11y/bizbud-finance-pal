@@ -18,6 +18,7 @@ import { analyzeCashflow, currency, num, pct, type CashflowMonth } from "@/lib/f
 const TABS = [
   { to: "/business", label: "Cash flow" },
   { to: "/business/advisor", label: "Bank advisor" },
+  { to: "/chat", label: "Bizz-Chat" },
 ];
 
 export const Route = createFileRoute("/business/")({
