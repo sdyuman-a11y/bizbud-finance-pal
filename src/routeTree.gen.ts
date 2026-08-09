@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as BusinessIndexRouteImport } from './routes/business.index'
 import { Route as BusinessAdvisorRouteImport } from './routes/business.advisor'
 import { Route as IndividualIndexRouteImport } from './routes/individual.index'
@@ -18,6 +19,11 @@ import { Route as IndividualLoansRouteImport } from './routes/individual.loans'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BusinessIndexRoute = BusinessIndexRouteImport.update({
@@ -43,6 +49,7 @@ const IndividualLoansRoute = IndividualLoansRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/api/chat': typeof ApiChatRoute
   '/business/advisor': typeof BusinessAdvisorRoute
   '/individual/loans': typeof IndividualLoansRoute
   '/business/': typeof BusinessIndexRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/api/chat': typeof ApiChatRoute
   '/business/advisor': typeof BusinessAdvisorRoute
   '/individual/loans': typeof IndividualLoansRoute
   '/business': typeof BusinessIndexRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/api/chat': typeof ApiChatRoute
   '/business/advisor': typeof BusinessAdvisorRoute
   '/individual/loans': typeof IndividualLoansRoute
   '/business/': typeof BusinessIndexRoute
@@ -67,6 +76,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/api/chat'
     | '/business/advisor'
     | '/individual/loans'
     | '/business/'
@@ -74,6 +84,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/api/chat'
     | '/business/advisor'
     | '/individual/loans'
     | '/business'
@@ -81,6 +92,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/api/chat'
     | '/business/advisor'
     | '/individual/loans'
     | '/business/'
@@ -89,6 +101,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApiChatRoute: typeof ApiChatRoute
   BusinessAdvisorRoute: typeof BusinessAdvisorRoute
   IndividualLoansRoute: typeof IndividualLoansRoute
   BusinessIndexRoute: typeof BusinessIndexRoute
@@ -102,6 +115,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/business/': {
@@ -137,6 +157,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApiChatRoute: ApiChatRoute,
   BusinessAdvisorRoute: BusinessAdvisorRoute,
   IndividualLoansRoute: IndividualLoansRoute,
   BusinessIndexRoute: BusinessIndexRoute,
@@ -145,13 +166,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
