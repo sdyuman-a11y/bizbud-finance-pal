@@ -23,7 +23,7 @@ export function ChatWindow({ thread }: { thread: ChatThread }) {
     id: thread.id,
     messages: thread.messages,
     transport,
-    onError: (error) => toast.error(error.message || "Bizz-Chat could not respond."),
+    onError: (error) => toast.error(error.message || "Biz-Chat could not respond."),
   });
 
   const isLoading = status === "submitted" || status === "streaming";
@@ -62,7 +62,7 @@ export function ChatWindow({ thread }: { thread: ChatThread }) {
               <Sparkles className="size-5" />
             </span>
             <div>
-              <p className="font-display text-lg font-semibold">Ask Bizz-Chat anything</p>
+              <p className="font-display text-lg font-semibold">Ask Biz-Chat anything</p>
               <p className="mt-1 text-sm text-muted-foreground">
                 Logic puzzles, reasoning problems, budgeting and lending questions.
               </p>

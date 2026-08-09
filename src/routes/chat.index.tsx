@@ -6,13 +6,13 @@ export const Route = createFileRoute("/chat/")({
   component: ChatIndex,
   head: () => ({
     meta: [
-      { title: "Bizz-Chat | AI Logic & Finance Assistant" },
+      { title: "Biz-Chat | AI Logic & Finance Assistant" },
       {
         name: "description",
         content:
-          "Bizz-Chat is Biz-Bud's AI assistant for logical reasoning, puzzles, budgeting and lending questions.",
+          "Biz-Chat is Biz-Bud's AI assistant for logical reasoning, puzzles, budgeting and lending questions.",
       },
-      { property: "og:title", content: "Bizz-Chat | AI Logic & Finance Assistant" },
+      { property: "og:title", content: "Biz-Chat | AI Logic & Finance Assistant" },
       {
         property: "og:description",
         content: "Chat with Biz-Bud's AI for logic problems and money decisions.",
@@ -34,7 +34,7 @@ function ChatIndex() {
 
   return (
     <div className="flex min-h-screen items-center justify-center text-sm text-muted-foreground">
-      Opening Bizz-Chat...
+      Opening Biz-Chat...
     </div>
   );
 }

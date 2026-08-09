@@ -8,7 +8,7 @@ import { currency, evaluateLoan, type Bank } from "@/lib/finance";
 const TABS = [
   { to: "/individual", label: "Budget planner" },
   { to: "/individual/loans", label: "Loan comparison" },
-  { to: "/chat", label: "Bizz-Chat" },
+  { to: "/chat", label: "Biz-Chat" },
 ];
 
 export const Route = createFileRoute("/individual/loans")({
