@@ -1,14 +1,30 @@
-# Welcome to your Lovable project
+# Biz-Bud Financial Assistant
+
+Build a financial assistant application called "Biz-Bud". The app should first ask users whether they are an Individual or Business.
+
+Individual users should have:
+
+Budget planner with income, expenses, savings calculation, budget score, emergency fund calculation and expense charts.
+
+Loan comparison calculator comparing multiple banks using EMI, total repayment and interest.
+
+Business users should have:
+
+Small business cash flow analyzer calculating revenue, expenses, profit and cash position.
+
+Bank advisor tool that evaluates clients based on income, debt ratio and repayment ability.
 
 This project was built with [Lovable](https://lovable.dev).
 
+**Live app**: https://bizbud-finance-pal.lovable.app
+
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/992e9a61-e168-4d67-8c3b-5163bbf59218).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +36,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
