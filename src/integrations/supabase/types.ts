@@ -14,6 +14,114 @@ export type Database = {
   }
   public: {
     Tables: {
+      documents: {
+        Row: {
+          category: string
+          created_at: string
+          expires_at: string | null
+          file_name: string
+          file_path: string
+          id: string
+          mime_type: string | null
+          notes: string | null
+          size_bytes: number
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          expires_at?: string | null
+          file_name: string
+          file_path: string
+          id?: string
+          mime_type?: string | null
+          notes?: string | null
+          size_bytes?: number
+          title: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          expires_at?: string | null
+          file_name?: string
+          file_path?: string
+          id?: string
+          mime_type?: string | null
+          notes?: string | null
+          size_bytes?: number
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      invoices: {
+        Row: {
+          amount: number
+          created_at: string
+          currency: string
+          customer_email: string | null
+          customer_name: string
+          due_date: string
+          fraud_flags: Json
+          fraud_score: number
+          id: string
+          invoice_number: string
+          issue_date: string
+          last_reminder_at: string | null
+          late_risk: number
+          notes: string | null
+          paid_at: string | null
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          amount?: number
+          created_at?: string
+          currency?: string
+          customer_email?: string | null
+          customer_name: string
+          due_date: string
+          fraud_flags?: Json
+          fraud_score?: number
+          id?: string
+          invoice_number: string
+          issue_date?: string
+          last_reminder_at?: string | null
+          late_risk?: number
+          notes?: string | null
+          paid_at?: string | null
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          currency?: string
+          customer_email?: string | null
+          customer_name?: string
+          due_date?: string
+          fraud_flags?: Json
+          fraud_score?: number
+          id?: string
+          invoice_number?: string
+          issue_date?: string
+          last_reminder_at?: string | null
+          late_risk?: number
+          notes?: string | null
+          paid_at?: string | null
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
