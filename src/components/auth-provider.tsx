@@ -24,7 +24,7 @@ const AuthContext = createContext<AuthValue>({
   setAuthOpen: () => {},
 });
 
-const DISMISS_KEY = "biz-bud.auth-prompt-dismissed";
+const DISMISS_KEY = "finbuddy.auth-prompt-dismissed";
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);

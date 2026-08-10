@@ -24,13 +24,13 @@ const TABS = [
 export const Route = createFileRoute("/individual/")({
   head: () => ({
     meta: [
-      { title: "Budget Planner — Biz-Bud" },
+      { title: "Budget Planner — FinBuddy" },
       {
         name: "description",
         content:
           "Plan monthly income and expenses, see your savings rate, budget score, emergency fund target and expense breakdown charts.",
       },
-      { property: "og:title", content: "Budget Planner — Biz-Bud" },
+      { property: "og:title", content: "Budget Planner — FinBuddy" },
       {
         property: "og:description",
         content:
@@ -86,7 +86,7 @@ function BudgetPlanner() {
   return (
     <AppShell
       title="Budget planner"
-      subtitle="Enter your monthly numbers. Biz-Bud calculates savings, scores the budget, sizes your emergency fund and charts where the money goes."
+      subtitle="Enter your monthly numbers. FinBuddy calculates savings, scores the budget, sizes your emergency fund and charts where the money goes."
       tabs={TABS}
     >
       <div className="grid gap-6 lg:grid-cols-[380px_1fr]">

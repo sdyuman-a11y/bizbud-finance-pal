@@ -1,6 +1,6 @@
-# Biz-Bud Financial Assistant
+# FinBuddy Financial Assistant
 
-Build a financial assistant application called "Biz-Bud". The app should first ask users whether they are an Individual or Business.
+Build a financial assistant application called "FinBuddy". The app should first ask users whether they are an Individual or Business.
 
 Individual users should have:
 

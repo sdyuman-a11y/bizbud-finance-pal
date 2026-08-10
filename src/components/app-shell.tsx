@@ -27,7 +27,7 @@ export function AppShell({
             <span className="ink-panel flex size-9 items-center justify-center rounded-xl">
               <Wallet className="size-4.5" />
             </span>
-            <span className="font-display text-lg font-semibold tracking-tight">Biz-Bud</span>
+            <span className="font-display text-lg font-semibold tracking-tight">FinBuddy</span>
           </Link>
           <div className="flex items-center gap-2">
             <nav className="flex items-center gap-1 rounded-full border border-border bg-card p-1">
