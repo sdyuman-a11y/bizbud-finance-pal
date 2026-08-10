@@ -10,12 +10,12 @@ export const Route = createFileRoute("/chat/")({
       {
         name: "description",
         content:
-          "Biz-Chat is Biz-Bud's AI assistant for logical reasoning, puzzles, budgeting and lending questions.",
+          "Biz-Chat is FinBuddy's AI assistant for logical reasoning, puzzles, budgeting and lending questions.",
       },
       { property: "og:title", content: "Biz-Chat | AI Logic & Finance Assistant" },
       {
         property: "og:description",
-        content: "Chat with Biz-Bud's AI for logic problems and money decisions.",
+        content: "Chat with FinBuddy's AI for logic problems and money decisions.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

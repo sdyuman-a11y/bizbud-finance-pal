@@ -6,13 +6,13 @@ import { HeaderControls } from "@/components/header-controls";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Biz-Bud — Budget, Loan & Cash Flow Assistant" },
+      { title: "FinBuddy — Budget, Loan & Cash Flow Assistant" },
       {
         name: "description",
         content:
-          "Biz-Bud is a financial assistant for individuals and businesses: budget planning, loan comparison, cash flow analysis and lending decisions.",
+          "FinBuddy is a financial assistant for individuals and businesses: budget planning, loan comparison, cash flow analysis and lending decisions.",
       },
-      { property: "og:title", content: "Biz-Bud — Budget, Loan & Cash Flow Assistant" },
+      { property: "og:title", content: "FinBuddy — Budget, Loan & Cash Flow Assistant" },
       {
         property: "og:description",
         content:
@@ -33,7 +33,7 @@ function Index() {
           <span className="ink-panel flex size-9 items-center justify-center rounded-xl">
             <Wallet className="size-4.5" />
           </span>
-          <span className="font-display text-lg font-semibold tracking-tight">Biz-Bud</span>
+          <span className="font-display text-lg font-semibold tracking-tight">FinBuddy</span>
         </div>
         <HeaderControls />
       </header>
@@ -49,7 +49,7 @@ function Index() {
           worked out on paper.
         </h1>
         <p className="mt-4 max-w-xl text-sm text-muted-foreground sm:text-base">
-          Tell us who you are and Biz-Bud opens the right desk — a household budget and loan bench,
+          Tell us who you are and FinBuddy opens the right desk — a household budget and loan bench,
           or a business cash flow and lending review.
         </p>
 
@@ -58,15 +58,15 @@ function Index() {
             to="/individual"
             icon={<User className="size-5" />}
             title="Individual"
-            body="Budget planner with savings, budget score, emergency fund and expense charts — plus a multi-bank loan comparison bench."
-            points={["Budget planner", "Loan comparison"]}
+            body="Budget planner with savings, budget score, emergency fund and expense charts, a multi-bank loan comparison bench, and a secure vault for your financial documents."
+            points={["Budget planner", "Loan comparison", "Document vault"]}
           />
           <ChoiceCard
             to="/business"
             icon={<Building2 className="size-5" />}
             title="Business"
-            body="Cash flow analyzer for revenue, expenses, profit and cash position — plus a bank advisor that scores client repayment ability."
-            points={["Cash flow analyzer", "Bank advisor"]}
+            body="Cash flow analyzer for revenue, expenses, profit and cash position, a bank advisor that scores client repayment ability, and a smart invoice assistant."
+            points={["Cash flow analyzer", "Bank advisor", "Invoice assistant"]}
           />
         </div>
 

@@ -7,13 +7,14 @@ import { adviseClient, currency, num, pct } from "@/lib/finance";
 const TABS = [
   { to: "/business", label: "Cash flow" },
   { to: "/business/advisor", label: "Bank advisor" },
+  { to: "/business/invoices", label: "Invoice assistant" },
   { to: "/chat", label: "Biz-Chat" },
 ];
 
 export const Route = createFileRoute("/business/advisor")({
   head: () => ({
     meta: [
-      { title: "Bank Advisor — Client Lending Assessment | Biz-Bud" },
+      { title: "Bank Advisor — Client Lending Assessment | FinBuddy" },
       {
         name: "description",
         content:

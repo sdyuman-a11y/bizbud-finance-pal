@@ -90,7 +90,7 @@ export function AuthDialog() {
             <Wallet className="size-5" />
           </span>
           <DialogTitle className="font-display text-2xl">
-            {mode === "signin" ? "Sign in to Biz-Bud" : "Create your Biz-Bud account"}
+            {mode === "signin" ? "Sign in to FinBuddy" : "Create your FinBuddy account"}
           </DialogTitle>
           <DialogDescription>
             Save your budgets, loan comparisons and chats across devices. You can also keep browsing

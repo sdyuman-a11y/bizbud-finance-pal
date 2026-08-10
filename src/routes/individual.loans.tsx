@@ -8,19 +8,20 @@ import { currency, evaluateLoan, type Bank } from "@/lib/finance";
 const TABS = [
   { to: "/individual", label: "Budget planner" },
   { to: "/individual/loans", label: "Loan comparison" },
+  { to: "/individual/vault", label: "Document vault" },
   { to: "/chat", label: "Biz-Chat" },
 ];
 
 export const Route = createFileRoute("/individual/loans")({
   head: () => ({
     meta: [
-      { title: "Loan Comparison Calculator — Biz-Bud" },
+      { title: "Loan Comparison Calculator — FinBuddy" },
       {
         name: "description",
         content:
           "Compare loan offers from multiple banks side by side: monthly EMI, total repayment, total interest and fees.",
       },
-      { property: "og:title", content: "Loan Comparison Calculator — Biz-Bud" },
+      { property: "og:title", content: "Loan Comparison Calculator — FinBuddy" },
       {
         property: "og:description",
         content: "Compare bank offers by EMI, total repayment and interest to find the cheapest loan.",
