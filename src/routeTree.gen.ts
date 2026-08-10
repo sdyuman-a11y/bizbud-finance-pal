@@ -16,6 +16,7 @@ import { Route as BusinessAdvisorRouteImport } from './routes/business.advisor'
 import { Route as ChatIndexRouteImport } from './routes/chat.index'
 import { Route as ChatThreadIdRouteImport } from './routes/chat.$threadId'
 import { Route as IndividualIndexRouteImport } from './routes/individual.index'
+import { Route as IndividualHealthRouteImport } from './routes/individual.health'
 import { Route as IndividualLoansRouteImport } from './routes/individual.loans'
 
 const IndexRoute = IndexRouteImport.update({
@@ -53,6 +54,11 @@ const IndividualIndexRoute = IndividualIndexRouteImport.update({
   path: '/individual/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IndividualHealthRoute = IndividualHealthRouteImport.update({
+  id: '/individual/health',
+  path: '/individual/health',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndividualLoansRoute = IndividualLoansRouteImport.update({
   id: '/individual/loans',
   path: '/individual/loans',
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/api/chat': typeof ApiChatRoute
   '/business/advisor': typeof BusinessAdvisorRoute
   '/chat/$threadId': typeof ChatThreadIdRoute
+  '/individual/health': typeof IndividualHealthRoute
   '/individual/loans': typeof IndividualLoansRoute
   '/business/': typeof BusinessIndexRoute
   '/chat/': typeof ChatIndexRoute
@@ -74,6 +81,7 @@ export interface FileRoutesByTo {
   '/api/chat': typeof ApiChatRoute
   '/business/advisor': typeof BusinessAdvisorRoute
   '/chat/$threadId': typeof ChatThreadIdRoute
+  '/individual/health': typeof IndividualHealthRoute
   '/individual/loans': typeof IndividualLoansRoute
   '/business': typeof BusinessIndexRoute
   '/chat': typeof ChatIndexRoute
@@ -85,6 +93,7 @@ export interface FileRoutesById {
   '/api/chat': typeof ApiChatRoute
   '/business/advisor': typeof BusinessAdvisorRoute
   '/chat/$threadId': typeof ChatThreadIdRoute
+  '/individual/health': typeof IndividualHealthRoute
   '/individual/loans': typeof IndividualLoansRoute
   '/business/': typeof BusinessIndexRoute
   '/chat/': typeof ChatIndexRoute
@@ -97,6 +106,7 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/business/advisor'
     | '/chat/$threadId'
+    | '/individual/health'
     | '/individual/loans'
     | '/business/'
     | '/chat/'
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/business/advisor'
     | '/chat/$threadId'
+    | '/individual/health'
     | '/individual/loans'
     | '/business'
     | '/chat'
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/business/advisor'
     | '/chat/$threadId'
+    | '/individual/health'
     | '/individual/loans'
     | '/business/'
     | '/chat/'
@@ -128,6 +140,7 @@ export interface RootRouteChildren {
   ApiChatRoute: typeof ApiChatRoute
   BusinessAdvisorRoute: typeof BusinessAdvisorRoute
   ChatThreadIdRoute: typeof ChatThreadIdRoute
+  IndividualHealthRoute: typeof IndividualHealthRoute
   IndividualLoansRoute: typeof IndividualLoansRoute
   BusinessIndexRoute: typeof BusinessIndexRoute
   ChatIndexRoute: typeof ChatIndexRoute
@@ -185,6 +198,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndividualIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/individual/health': {
+      id: '/individual/health'
+      path: '/individual/health'
+      fullPath: '/individual/health'
+      preLoaderRoute: typeof IndividualHealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/individual/loans': {
       id: '/individual/loans'
       path: '/individual/loans'
@@ -200,6 +220,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiChatRoute: ApiChatRoute,
   BusinessAdvisorRoute: BusinessAdvisorRoute,
   ChatThreadIdRoute: ChatThreadIdRoute,
+  IndividualHealthRoute: IndividualHealthRoute,
   IndividualLoansRoute: IndividualLoansRoute,
   BusinessIndexRoute: BusinessIndexRoute,
   ChatIndexRoute: ChatIndexRoute,
@@ -208,3 +229,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
