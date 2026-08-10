@@ -18,6 +18,7 @@ import { Route as ChatThreadIdRouteImport } from './routes/chat.$threadId'
 import { Route as IndividualIndexRouteImport } from './routes/individual.index'
 import { Route as IndividualHealthRouteImport } from './routes/individual.health'
 import { Route as IndividualLoansRouteImport } from './routes/individual.loans'
+import { Route as IndividualVaultRouteImport } from './routes/individual.vault'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -64,6 +65,11 @@ const IndividualLoansRoute = IndividualLoansRouteImport.update({
   path: '/individual/loans',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IndividualVaultRoute = IndividualVaultRouteImport.update({
+  id: '/individual/vault',
+  path: '/individual/vault',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -72,6 +78,7 @@ export interface FileRoutesByFullPath {
   '/chat/$threadId': typeof ChatThreadIdRoute
   '/individual/health': typeof IndividualHealthRoute
   '/individual/loans': typeof IndividualLoansRoute
+  '/individual/vault': typeof IndividualVaultRoute
   '/business/': typeof BusinessIndexRoute
   '/chat/': typeof ChatIndexRoute
   '/individual/': typeof IndividualIndexRoute
@@ -83,6 +90,7 @@ export interface FileRoutesByTo {
   '/chat/$threadId': typeof ChatThreadIdRoute
   '/individual/health': typeof IndividualHealthRoute
   '/individual/loans': typeof IndividualLoansRoute
+  '/individual/vault': typeof IndividualVaultRoute
   '/business': typeof BusinessIndexRoute
   '/chat': typeof ChatIndexRoute
   '/individual': typeof IndividualIndexRoute
@@ -95,6 +103,7 @@ export interface FileRoutesById {
   '/chat/$threadId': typeof ChatThreadIdRoute
   '/individual/health': typeof IndividualHealthRoute
   '/individual/loans': typeof IndividualLoansRoute
+  '/individual/vault': typeof IndividualVaultRoute
   '/business/': typeof BusinessIndexRoute
   '/chat/': typeof ChatIndexRoute
   '/individual/': typeof IndividualIndexRoute
@@ -108,6 +117,7 @@ export interface FileRouteTypes {
     | '/chat/$threadId'
     | '/individual/health'
     | '/individual/loans'
+    | '/individual/vault'
     | '/business/'
     | '/chat/'
     | '/individual/'
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | '/chat/$threadId'
     | '/individual/health'
     | '/individual/loans'
+    | '/individual/vault'
     | '/business'
     | '/chat'
     | '/individual'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/chat/$threadId'
     | '/individual/health'
     | '/individual/loans'
+    | '/individual/vault'
     | '/business/'
     | '/chat/'
     | '/individual/'
@@ -142,6 +154,7 @@ export interface RootRouteChildren {
   ChatThreadIdRoute: typeof ChatThreadIdRoute
   IndividualHealthRoute: typeof IndividualHealthRoute
   IndividualLoansRoute: typeof IndividualLoansRoute
+  IndividualVaultRoute: typeof IndividualVaultRoute
   BusinessIndexRoute: typeof BusinessIndexRoute
   ChatIndexRoute: typeof ChatIndexRoute
   IndividualIndexRoute: typeof IndividualIndexRoute
@@ -212,6 +225,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndividualLoansRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/individual/vault': {
+      id: '/individual/vault'
+      path: '/individual/vault'
+      fullPath: '/individual/vault'
+      preLoaderRoute: typeof IndividualVaultRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -222,6 +242,7 @@ const rootRouteChildren: RootRouteChildren = {
   ChatThreadIdRoute: ChatThreadIdRoute,
   IndividualHealthRoute: IndividualHealthRoute,
   IndividualLoansRoute: IndividualLoansRoute,
+  IndividualVaultRoute: IndividualVaultRoute,
   BusinessIndexRoute: BusinessIndexRoute,
   ChatIndexRoute: ChatIndexRoute,
   IndividualIndexRoute: IndividualIndexRoute,
