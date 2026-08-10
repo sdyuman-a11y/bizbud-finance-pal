@@ -137,7 +137,7 @@ function InvoicesPage() {
   });
 
   const patch = useMutation({
-    mutationFn: async ({ id, values }: { id: string; values: Record<string, unknown> }) => {
+    mutationFn: async ({ id, values }: { id: string; values: { status?: string; paid_at?: string; last_reminder_at?: string } }) => {
       const { error } = await supabase.from("invoices").update(values).eq("id", id);
       if (error) throw error;
     },

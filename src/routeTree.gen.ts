@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as BusinessIndexRouteImport } from './routes/business.index'
 import { Route as BusinessAdvisorRouteImport } from './routes/business.advisor'
+import { Route as BusinessInvoicesRouteImport } from './routes/business.invoices'
 import { Route as ChatIndexRouteImport } from './routes/chat.index'
 import { Route as ChatThreadIdRouteImport } from './routes/chat.$threadId'
 import { Route as IndividualIndexRouteImport } from './routes/individual.index'
@@ -38,6 +39,11 @@ const BusinessIndexRoute = BusinessIndexRouteImport.update({
 const BusinessAdvisorRoute = BusinessAdvisorRouteImport.update({
   id: '/business/advisor',
   path: '/business/advisor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessInvoicesRoute = BusinessInvoicesRouteImport.update({
+  id: '/business/invoices',
+  path: '/business/invoices',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ChatIndexRoute = ChatIndexRouteImport.update({
@@ -75,6 +81,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/api/chat': typeof ApiChatRoute
   '/business/advisor': typeof BusinessAdvisorRoute
+  '/business/invoices': typeof BusinessInvoicesRoute
   '/chat/$threadId': typeof ChatThreadIdRoute
   '/individual/health': typeof IndividualHealthRoute
   '/individual/loans': typeof IndividualLoansRoute
@@ -87,6 +94,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/api/chat': typeof ApiChatRoute
   '/business/advisor': typeof BusinessAdvisorRoute
+  '/business/invoices': typeof BusinessInvoicesRoute
   '/chat/$threadId': typeof ChatThreadIdRoute
   '/individual/health': typeof IndividualHealthRoute
   '/individual/loans': typeof IndividualLoansRoute
@@ -100,6 +108,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/api/chat': typeof ApiChatRoute
   '/business/advisor': typeof BusinessAdvisorRoute
+  '/business/invoices': typeof BusinessInvoicesRoute
   '/chat/$threadId': typeof ChatThreadIdRoute
   '/individual/health': typeof IndividualHealthRoute
   '/individual/loans': typeof IndividualLoansRoute
@@ -114,6 +123,7 @@ export interface FileRouteTypes {
     | '/'
     | '/api/chat'
     | '/business/advisor'
+    | '/business/invoices'
     | '/chat/$threadId'
     | '/individual/health'
     | '/individual/loans'
@@ -126,6 +136,7 @@ export interface FileRouteTypes {
     | '/'
     | '/api/chat'
     | '/business/advisor'
+    | '/business/invoices'
     | '/chat/$threadId'
     | '/individual/health'
     | '/individual/loans'
@@ -138,6 +149,7 @@ export interface FileRouteTypes {
     | '/'
     | '/api/chat'
     | '/business/advisor'
+    | '/business/invoices'
     | '/chat/$threadId'
     | '/individual/health'
     | '/individual/loans'
@@ -151,6 +163,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ApiChatRoute: typeof ApiChatRoute
   BusinessAdvisorRoute: typeof BusinessAdvisorRoute
+  BusinessInvoicesRoute: typeof BusinessInvoicesRoute
   ChatThreadIdRoute: typeof ChatThreadIdRoute
   IndividualHealthRoute: typeof IndividualHealthRoute
   IndividualLoansRoute: typeof IndividualLoansRoute
@@ -188,6 +201,13 @@ declare module '@tanstack/react-router' {
       path: '/business/advisor'
       fullPath: '/business/advisor'
       preLoaderRoute: typeof BusinessAdvisorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/business/invoices': {
+      id: '/business/invoices'
+      path: '/business/invoices'
+      fullPath: '/business/invoices'
+      preLoaderRoute: typeof BusinessInvoicesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/chat/': {
@@ -239,6 +259,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ApiChatRoute: ApiChatRoute,
   BusinessAdvisorRoute: BusinessAdvisorRoute,
+  BusinessInvoicesRoute: BusinessInvoicesRoute,
   ChatThreadIdRoute: ChatThreadIdRoute,
   IndividualHealthRoute: IndividualHealthRoute,
   IndividualLoansRoute: IndividualLoansRoute,
