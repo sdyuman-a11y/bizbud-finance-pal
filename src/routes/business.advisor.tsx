@@ -7,6 +7,7 @@ import { adviseClient, currency, num, pct } from "@/lib/finance";
 const TABS = [
   { to: "/business", label: "Cash flow" },
   { to: "/business/advisor", label: "Bank advisor" },
+  { to: "/business/invoices", label: "Invoice assistant" },
   { to: "/chat", label: "Biz-Chat" },
 ];
 
