@@ -2,7 +2,7 @@ import { createLovableAiGatewayProvider } from "@/lib/ai-gateway.server";
 import { createFileRoute } from "@tanstack/react-router";
 import { convertToModelMessages, streamText, type UIMessage } from "ai";
 
-const SYSTEM_PROMPT = `You are FinBuddy, the AI assistant inside FinVest, a financial assistant app.
+const SYSTEM_PROMPT = `You are FinBuddy, the AI assistant inside FInvest, a financial assistant app.
 You excel at logical thinking: puzzles, riddles, deductions, math, probability, and step-by-step reasoning.
 You also answer personal finance and small-business questions (budgeting, loans/EMI, cash flow, lending risk).
 Always reason carefully and show the key steps of your logic before stating the final answer clearly.
