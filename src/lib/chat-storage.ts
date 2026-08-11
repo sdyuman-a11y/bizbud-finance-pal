@@ -7,7 +7,7 @@ export type ChatThread = {
   messages: UIMessage[];
 };
 
-const KEY = "bizz-chat-threads";
+const KEY = "finbuddy-threads";
 
 export function isBrowser() {
   return typeof window !== "undefined";
