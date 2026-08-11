@@ -413,18 +413,12 @@ function FinancialHealthPage() {
         </section>
 
         {/* Back to Budget Planner */}
-        <div className="flex justify-between gap-4">
+        <div className="flex justify-start gap-4">
           <Link
             to="/individual"
             className="inline-flex items-center gap-2 rounded-lg border border-input bg-card px-4 py-2 font-semibold transition-colors hover:bg-secondary"
           >
             ← Back to Budget Planner
-          </Link>
-          <Link
-            to="/individual/simulator"
-            className="inline-flex items-center gap-2 rounded-lg bg-secondary px-4 py-2 font-semibold transition-colors hover:bg-secondary/80"
-          >
-            What-If Simulator →
           </Link>
         </div>
       </div>
