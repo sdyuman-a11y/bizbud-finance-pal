@@ -15,13 +15,13 @@ const TABS = [
 export const Route = createFileRoute("/individual/loans")({
   head: () => ({
     meta: [
-      { title: "Loan Comparison Calculator — FinVest" },
+      { title: "Loan Comparison Calculator — FInvest" },
       {
         name: "description",
         content:
           "Compare loan offers from multiple banks side by side: monthly EMI, total repayment, total interest and fees.",
       },
-      { property: "og:title", content: "Loan Comparison Calculator — FinVest" },
+      { property: "og:title", content: "Loan Comparison Calculator — FInvest" },
       {
         property: "og:description",
         content: "Compare bank offers by EMI, total repayment and interest to find the cheapest loan.",
