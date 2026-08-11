@@ -33,13 +33,13 @@ const TABS = [
 export const Route = createFileRoute("/individual/health")({
   head: () => ({
     meta: [
-      { title: "Financial Health Hub — FinBuddy" },
+      { title: "Financial Health Hub — FinVest" },
       {
         name: "description",
         content:
           "Get your financial health score and personalized recommendations based on your budget data.",
       },
-      { property: "og:title", content: "Financial Health Hub — FinBuddy" },
+      { property: "og:title", content: "Financial Health Hub — FinVest" },
       {
         property: "og:description",
         content: "Health score, spending analysis, debt evaluation and actionable recommendations.",
@@ -379,17 +379,17 @@ function FinancialHealthPage() {
           </div>
         </section>
 
-        {/* Ask FinBuddy Section */}
+        {/* Ask FinVest Section */}
         <section className="surface border-2 border-primary/30 bg-primary/5 p-6">
           <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
             <div>
               <h2 className="text-lg font-semibold">Want More Insight?</h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                Ask FinBuddy to explain your health score, recommendations, and how to improve.
+                Ask FinVest to explain your health score, recommendations, and how to improve.
               </p>
               {!showChatContext && (
                 <div className="mt-3 rounded-lg bg-white/50 p-3 text-xs text-muted-foreground">
-                  <p className="font-semibold">Your Health Summary (sent to FinBuddy):</p>
+                  <p className="font-semibold">Your Health Summary (sent to FinVest):</p>
                   <ul className="mt-2 space-y-1">
                     <li>• Health Score: {health.score}/100 ({health.grade})</li>
                     <li>• Spending: {health.spendingAnalysis.expenseRatio.toFixed(1)}% of income</li>
@@ -406,7 +406,7 @@ function FinancialHealthPage() {
               className="inline-flex items-center gap-2 whitespace-nowrap rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground transition-transform hover:scale-105"
             >
               <Zap className="size-4" />
-              Ask FinBuddy
+              Ask FinVest
               <ArrowRight className="size-4" />
             </Link>
           </div>

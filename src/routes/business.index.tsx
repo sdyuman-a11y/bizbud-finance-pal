@@ -25,13 +25,13 @@ const TABS = [
 export const Route = createFileRoute("/business/")({
   head: () => ({
     meta: [
-      { title: "Small Business Cash Flow Analyzer — FinBuddy" },
+      { title: "Small Business Cash Flow Analyzer — FinVest" },
       {
         name: "description",
         content:
           "Track monthly revenue, cost of goods, operating expenses, profit margin and running cash position for your small business.",
       },
-      { property: "og:title", content: "Small Business Cash Flow Analyzer — FinBuddy" },
+      { property: "og:title", content: "Small Business Cash Flow Analyzer — FinVest" },
       {
         property: "og:description",
         content: "Revenue, expenses, profit and cash position month by month, with runway warnings.",
@@ -64,7 +64,7 @@ function CashflowPage() {
   return (
     <AppShell
       title="Cash flow analyzer"
-      subtitle="Enter monthly revenue and costs. FinBuddy calculates gross and net profit, margin, burn and your running cash position."
+      subtitle="Enter monthly revenue and costs. FinVest calculates gross and net profit, margin, burn and your running cash position."
       tabs={TABS}
     >
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
