@@ -68,7 +68,7 @@ function loadBudgetData(): BudgetInput {
   }
 
   try {
-    const stored = window.localStorage.getItem("biz-bud-budget");
+    const stored = window.localStorage.getItem("finbuddy-budget");
     if (stored) {
       const parsed = JSON.parse(stored);
       return {
