@@ -79,7 +79,7 @@ function Index() {
               <Sparkles className="size-5" />
             </span>
             <span>
-              <span className="block text-lg font-semibold">Biz-Chat</span>
+              <span className="block text-lg font-semibold">FinBuddy</span>
               <span className="block text-sm text-muted-foreground">
                 AI assistant for logical thinking questions, puzzles and money decisions.
               </span>

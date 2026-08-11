@@ -27,7 +27,7 @@ const TABS = [
   { to: "/individual/fraud", label: "Fraud protection" },
   { to: "/individual/vault", label: "Document vault" },
   { to: "/individual/family", label: "Family finance" },
-  { to: "/chat", label: "Biz-Chat" },
+  { to: "/chat", label: "FinBuddy" },
 ];
 
 export const Route = createFileRoute("/individual/health")({

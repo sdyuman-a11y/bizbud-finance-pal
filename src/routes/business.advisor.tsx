@@ -8,7 +8,7 @@ const TABS = [
   { to: "/business", label: "Cash flow" },
   { to: "/business/advisor", label: "Bank advisor" },
   { to: "/business/invoices", label: "Invoice assistant" },
-  { to: "/chat", label: "Biz-Chat" },
+  { to: "/chat", label: "FinBuddy" },
 ];
 
 export const Route = createFileRoute("/business/advisor")({

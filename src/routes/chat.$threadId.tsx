@@ -15,13 +15,13 @@ export const Route = createFileRoute("/chat/$threadId")({
   component: ChatThreadPage,
   head: () => ({
     meta: [
-      { title: "Biz-Chat | FinVest AI Assistant" },
+      { title: "FinBuddy | FinVest AI Assistant" },
       {
         name: "description",
         content:
-          "Ask Biz-Chat logical thinking questions, puzzles and finance problems inside FinVest.",
+          "Ask FinBuddy logical thinking questions, puzzles and finance problems inside FinVest.",
       },
-      { property: "og:title", content: "Biz-Chat | FinVest AI Assistant" },
+      { property: "og:title", content: "FinBuddy | FinVest AI Assistant" },
       {
         property: "og:description",
         content: "Step-by-step reasoning for logic puzzles, budgets and loans.",
@@ -69,12 +69,12 @@ function ChatThreadPage() {
 
   return (
     <AppShell
-      title="Biz-Chat"
+      title="FinBuddy"
       subtitle="Your AI thinking partner — logic puzzles, reasoning problems, and money questions, answered step by step."
       tabs={[
         { to: "/individual", label: "Budget" },
         { to: "/business", label: "Business" },
-        { to: "/chat", label: "Biz-Chat" },
+        { to: "/chat", label: "FinBuddy" },
       ]}
     >
       <div className="grid gap-5 lg:grid-cols-[240px_1fr]">
