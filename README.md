@@ -1,6 +1,6 @@
-# FinBuddy Financial Assistant
+# FinVest Financial Assistant
 
-Build a financial assistant application called "FinBuddy". The app should first ask users whether they are an Individual or Business.
+Build a financial assistant application called "FinVest". The app should first ask users whether they are an Individual or Business.
 
 Individual users should have:
 

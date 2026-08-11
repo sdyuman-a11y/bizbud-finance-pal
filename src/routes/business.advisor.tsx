@@ -14,7 +14,7 @@ const TABS = [
 export const Route = createFileRoute("/business/advisor")({
   head: () => ({
     meta: [
-      { title: "Bank Advisor — Client Lending Assessment | FinBuddy" },
+      { title: "Bank Advisor — Client Lending Assessment | FinVest" },
       {
         name: "description",
         content:

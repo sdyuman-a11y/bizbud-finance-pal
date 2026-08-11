@@ -15,13 +15,13 @@ export const Route = createFileRoute("/chat/$threadId")({
   component: ChatThreadPage,
   head: () => ({
     meta: [
-      { title: "Biz-Chat | FinBuddy AI Assistant" },
+      { title: "Biz-Chat | FinVest AI Assistant" },
       {
         name: "description",
         content:
-          "Ask Biz-Chat logical thinking questions, puzzles and finance problems inside FinBuddy.",
+          "Ask Biz-Chat logical thinking questions, puzzles and finance problems inside FinVest.",
       },
-      { property: "og:title", content: "Biz-Chat | FinBuddy AI Assistant" },
+      { property: "og:title", content: "Biz-Chat | FinVest AI Assistant" },
       {
         property: "og:description",
         content: "Step-by-step reasoning for logic puzzles, budgets and loans.",

@@ -82,10 +82,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "FinBuddy — Financial Assistant" },
+      { title: "FinVest — Financial Assistant" },
       { name: "description", content: "Budgets, loans, cash flow and lending decisions for individuals and businesses." },
-      { name: "author", content: "FinBuddy" },
-      { property: "og:title", content: "FinBuddy — Financial Assistant" },
+      { name: "author", content: "FinVest" },
+      { property: "og:title", content: "FinVest — Financial Assistant" },
       { property: "og:description", content: "Budgets, loans, cash flow and lending decisions in one assistant." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
