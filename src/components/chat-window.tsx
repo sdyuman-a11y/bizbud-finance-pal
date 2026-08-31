@@ -68,14 +68,14 @@ export function ChatWindow({
   }, [thread.id, status]);
 
   useEffect(() => {
-    if (isLoading || messages.length === 0) return;
+    if (!persist || isLoading || messages.length === 0) return;
     upsertThread({
       id: thread.id,
       title: deriveTitle(messages as UIMessage[]),
       updatedAt: Date.now(),
       messages: messages as UIMessage[],
     });
-  }, [messages, isLoading, thread.id]);
+  }, [messages, isLoading, thread.id, persist]);
 
   const submit = (text: string) => {
     const value = text.trim();
@@ -85,7 +85,7 @@ export function ChatWindow({
   };
 
   return (
-    <div className="surface flex h-[70vh] min-h-[520px] flex-col overflow-hidden">
+    <div className={`surface flex flex-col overflow-hidden ${className}`}>
       <div className="flex-1 space-y-5 overflow-y-auto p-5">
         {messages.length === 0 ? (
           <div className="flex h-full flex-col items-center justify-center gap-4 text-center">
@@ -93,10 +93,9 @@ export function ChatWindow({
               <Sparkles className="size-5" />
             </span>
             <div>
-              <p className="font-display text-lg font-semibold">Ask FinBuddy anything</p>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Logic puzzles, reasoning problems, budgeting and lending questions.
-              </p>
+              <p className="font-display text-lg font-semibold">{emptyTitle}</p>
+              <p className="mt-1 text-sm text-muted-foreground">{emptyHint}</p>
+
             </div>
             <div className="flex flex-wrap justify-center gap-2">
               {SUGGESTIONS.map((s) => (
