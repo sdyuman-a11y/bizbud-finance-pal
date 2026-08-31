@@ -19,6 +19,7 @@ import { Route as ChatThreadIdRouteImport } from './routes/chat.$threadId'
 import { Route as IndividualIndexRouteImport } from './routes/individual.index'
 import { Route as IndividualHealthRouteImport } from './routes/individual.health'
 import { Route as IndividualLoansRouteImport } from './routes/individual.loans'
+import { Route as IndividualPortfolioRouteImport } from './routes/individual.portfolio'
 import { Route as IndividualVaultRouteImport } from './routes/individual.vault'
 
 const IndexRoute = IndexRouteImport.update({
@@ -71,6 +72,11 @@ const IndividualLoansRoute = IndividualLoansRouteImport.update({
   path: '/individual/loans',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IndividualPortfolioRoute = IndividualPortfolioRouteImport.update({
+  id: '/individual/portfolio',
+  path: '/individual/portfolio',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndividualVaultRoute = IndividualVaultRouteImport.update({
   id: '/individual/vault',
   path: '/individual/vault',
@@ -85,6 +91,7 @@ export interface FileRoutesByFullPath {
   '/chat/$threadId': typeof ChatThreadIdRoute
   '/individual/health': typeof IndividualHealthRoute
   '/individual/loans': typeof IndividualLoansRoute
+  '/individual/portfolio': typeof IndividualPortfolioRoute
   '/individual/vault': typeof IndividualVaultRoute
   '/business/': typeof BusinessIndexRoute
   '/chat/': typeof ChatIndexRoute
@@ -98,6 +105,7 @@ export interface FileRoutesByTo {
   '/chat/$threadId': typeof ChatThreadIdRoute
   '/individual/health': typeof IndividualHealthRoute
   '/individual/loans': typeof IndividualLoansRoute
+  '/individual/portfolio': typeof IndividualPortfolioRoute
   '/individual/vault': typeof IndividualVaultRoute
   '/business': typeof BusinessIndexRoute
   '/chat': typeof ChatIndexRoute
@@ -112,6 +120,7 @@ export interface FileRoutesById {
   '/chat/$threadId': typeof ChatThreadIdRoute
   '/individual/health': typeof IndividualHealthRoute
   '/individual/loans': typeof IndividualLoansRoute
+  '/individual/portfolio': typeof IndividualPortfolioRoute
   '/individual/vault': typeof IndividualVaultRoute
   '/business/': typeof BusinessIndexRoute
   '/chat/': typeof ChatIndexRoute
@@ -127,6 +136,7 @@ export interface FileRouteTypes {
     | '/chat/$threadId'
     | '/individual/health'
     | '/individual/loans'
+    | '/individual/portfolio'
     | '/individual/vault'
     | '/business/'
     | '/chat/'
@@ -140,6 +150,7 @@ export interface FileRouteTypes {
     | '/chat/$threadId'
     | '/individual/health'
     | '/individual/loans'
+    | '/individual/portfolio'
     | '/individual/vault'
     | '/business'
     | '/chat'
@@ -153,6 +164,7 @@ export interface FileRouteTypes {
     | '/chat/$threadId'
     | '/individual/health'
     | '/individual/loans'
+    | '/individual/portfolio'
     | '/individual/vault'
     | '/business/'
     | '/chat/'
@@ -167,6 +179,7 @@ export interface RootRouteChildren {
   ChatThreadIdRoute: typeof ChatThreadIdRoute
   IndividualHealthRoute: typeof IndividualHealthRoute
   IndividualLoansRoute: typeof IndividualLoansRoute
+  IndividualPortfolioRoute: typeof IndividualPortfolioRoute
   IndividualVaultRoute: typeof IndividualVaultRoute
   BusinessIndexRoute: typeof BusinessIndexRoute
   ChatIndexRoute: typeof ChatIndexRoute
@@ -245,6 +258,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndividualLoansRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/individual/portfolio': {
+      id: '/individual/portfolio'
+      path: '/individual/portfolio'
+      fullPath: '/individual/portfolio'
+      preLoaderRoute: typeof IndividualPortfolioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/individual/vault': {
       id: '/individual/vault'
       path: '/individual/vault'
@@ -263,6 +283,7 @@ const rootRouteChildren: RootRouteChildren = {
   ChatThreadIdRoute: ChatThreadIdRoute,
   IndividualHealthRoute: IndividualHealthRoute,
   IndividualLoansRoute: IndividualLoansRoute,
+  IndividualPortfolioRoute: IndividualPortfolioRoute,
   IndividualVaultRoute: IndividualVaultRoute,
   BusinessIndexRoute: BusinessIndexRoute,
   ChatIndexRoute: ChatIndexRoute,
@@ -271,3 +292,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
