@@ -1,23 +1,53 @@
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport, type UIMessage } from "ai";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { Send, Sparkles, Square } from "lucide-react";
 import { toast } from "sonner";
 import { deriveTitle, upsertThread, type ChatThread } from "@/lib/chat-storage";
 
-const SUGGESTIONS = [
+const DEFAULT_SUGGESTIONS = [
   "If all Blips are Blaps and some Blaps are Blops, what follows?",
   "A loan of $20,000 at 9% for 4 years — is it worth refinancing at 7%?",
   "Three switches, one bulb, one trip upstairs. How do I solve it?",
 ];
 
-const transport = new DefaultChatTransport({ api: "/api/chat" });
-
-export function ChatWindow({ thread }: { thread: ChatThread }) {
+export function ChatWindow({
+  thread,
+  context,
+  suggestions,
+  emptyTitle = "Ask FinBuddy anything",
+  emptyHint = "Logic puzzles, reasoning problems, budgeting and lending questions.",
+  persist = true,
+  className = "h-[70vh] min-h-[520px]",
+}: {
+  thread: ChatThread;
+  /** Extra factual grounding (e.g. portfolio + news) passed to the same FinBuddy assistant. */
+  context?: string;
+  suggestions?: string[];
+  emptyTitle?: string;
+  emptyHint?: string;
+  persist?: boolean;
+  className?: string;
+}) {
   const [input, setInput] = useState("");
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const contextRef = useRef(context);
+  contextRef.current = context;
+
+  const transport = useMemo(
+    () =>
+      new DefaultChatTransport({
+        api: "/api/chat",
+        prepareSendMessagesRequest: ({ messages, body }) => ({
+          body: { ...body, messages, context: contextRef.current ?? null },
+        }),
+      }),
+    [],
+  );
+
+  const SUGGESTIONS = suggestions ?? DEFAULT_SUGGESTIONS;
 
   const { messages, sendMessage, status, stop } = useChat({
     id: thread.id,
@@ -25,6 +55,7 @@ export function ChatWindow({ thread }: { thread: ChatThread }) {
     transport,
     onError: (error) => toast.error(error.message || "FinBuddy could not respond."),
   });
+
 
   const isLoading = status === "submitted" || status === "streaming";
 
