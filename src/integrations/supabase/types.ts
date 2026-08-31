@@ -59,6 +59,45 @@ export type Database = {
         }
         Relationships: []
       }
+      holdings: {
+        Row: {
+          avg_price: number
+          company_name: string
+          created_at: string
+          id: string
+          notes: string | null
+          sector: string | null
+          shares: number
+          ticker: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avg_price?: number
+          company_name?: string
+          created_at?: string
+          id?: string
+          notes?: string | null
+          sector?: string | null
+          shares?: number
+          ticker: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avg_price?: number
+          company_name?: string
+          created_at?: string
+          id?: string
+          notes?: string | null
+          sector?: string | null
+          shares?: number
+          ticker?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       invoices: {
         Row: {
           amount: number
