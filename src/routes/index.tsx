@@ -58,8 +58,8 @@ function Index() {
             to="/individual"
             icon={<User className="size-5" />}
             title="Individual"
-            body="Budget planner with savings, budget score, emergency fund and expense charts, a multi-bank loan comparison bench, and a secure vault for your financial documents."
-            points={["Budget planner", "Loan comparison", "Document vault"]}
+            body="Budget planner with savings, budget score, emergency fund and expense charts, a multi-bank loan comparison bench, portfolio intelligence with live value and ranked news, and a secure vault for your financial documents."
+            points={["Budget planner", "Loan comparison", "Portfolio", "Document vault"]}
           />
           <ChoiceCard
             to="/business"
