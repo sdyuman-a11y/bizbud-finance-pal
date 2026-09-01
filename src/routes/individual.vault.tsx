@@ -18,6 +18,7 @@ import { supabase } from "@/integrations/supabase/client";
 const TABS = [
   { to: "/individual", label: "Budget planner" },
   { to: "/individual/loans", label: "Loan comparison" },
+  { to: "/individual/portfolio", label: "Portfolio" },
   { to: "/individual/vault", label: "Document vault" },
   { to: "/chat", label: "FinBuddy" },
 ];

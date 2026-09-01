@@ -23,10 +23,8 @@ const TABS = [
   { to: "/individual", label: "Budget planner" },
   { to: "/individual/loans", label: "Loan comparison" },
   { to: "/individual/health", label: "Financial health" },
-  { to: "/individual/simulator", label: "What-if simulator" },
-  { to: "/individual/fraud", label: "Fraud protection" },
+  { to: "/individual/portfolio", label: "Portfolio" },
   { to: "/individual/vault", label: "Document vault" },
-  { to: "/individual/family", label: "Family finance" },
   { to: "/chat", label: "FinBuddy" },
 ];
 
