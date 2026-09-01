@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as BusinessIndexRouteImport } from './routes/business.index'
 import { Route as BusinessAdvisorRouteImport } from './routes/business.advisor'
@@ -19,12 +20,16 @@ import { Route as ChatThreadIdRouteImport } from './routes/chat.$threadId'
 import { Route as IndividualIndexRouteImport } from './routes/individual.index'
 import { Route as IndividualHealthRouteImport } from './routes/individual.health'
 import { Route as IndividualLoansRouteImport } from './routes/individual.loans'
-import { Route as IndividualPortfolioRouteImport } from './routes/individual.portfolio'
 import { Route as IndividualVaultRouteImport } from './routes/individual.vault'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioRoute = PortfolioRouteImport.update({
+  id: '/portfolio',
+  path: '/portfolio',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiChatRoute = ApiChatRouteImport.update({
@@ -72,11 +77,6 @@ const IndividualLoansRoute = IndividualLoansRouteImport.update({
   path: '/individual/loans',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndividualPortfolioRoute = IndividualPortfolioRouteImport.update({
-  id: '/individual/portfolio',
-  path: '/individual/portfolio',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndividualVaultRoute = IndividualVaultRouteImport.update({
   id: '/individual/vault',
   path: '/individual/vault',
@@ -85,13 +85,13 @@ const IndividualVaultRoute = IndividualVaultRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/portfolio': typeof PortfolioRoute
   '/api/chat': typeof ApiChatRoute
   '/business/advisor': typeof BusinessAdvisorRoute
   '/business/invoices': typeof BusinessInvoicesRoute
   '/chat/$threadId': typeof ChatThreadIdRoute
   '/individual/health': typeof IndividualHealthRoute
   '/individual/loans': typeof IndividualLoansRoute
-  '/individual/portfolio': typeof IndividualPortfolioRoute
   '/individual/vault': typeof IndividualVaultRoute
   '/business/': typeof BusinessIndexRoute
   '/chat/': typeof ChatIndexRoute
@@ -99,13 +99,13 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/portfolio': typeof PortfolioRoute
   '/api/chat': typeof ApiChatRoute
   '/business/advisor': typeof BusinessAdvisorRoute
   '/business/invoices': typeof BusinessInvoicesRoute
   '/chat/$threadId': typeof ChatThreadIdRoute
   '/individual/health': typeof IndividualHealthRoute
   '/individual/loans': typeof IndividualLoansRoute
-  '/individual/portfolio': typeof IndividualPortfolioRoute
   '/individual/vault': typeof IndividualVaultRoute
   '/business': typeof BusinessIndexRoute
   '/chat': typeof ChatIndexRoute
@@ -114,13 +114,13 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/portfolio': typeof PortfolioRoute
   '/api/chat': typeof ApiChatRoute
   '/business/advisor': typeof BusinessAdvisorRoute
   '/business/invoices': typeof BusinessInvoicesRoute
   '/chat/$threadId': typeof ChatThreadIdRoute
   '/individual/health': typeof IndividualHealthRoute
   '/individual/loans': typeof IndividualLoansRoute
-  '/individual/portfolio': typeof IndividualPortfolioRoute
   '/individual/vault': typeof IndividualVaultRoute
   '/business/': typeof BusinessIndexRoute
   '/chat/': typeof ChatIndexRoute
@@ -130,13 +130,13 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/portfolio'
     | '/api/chat'
     | '/business/advisor'
     | '/business/invoices'
     | '/chat/$threadId'
     | '/individual/health'
     | '/individual/loans'
-    | '/individual/portfolio'
     | '/individual/vault'
     | '/business/'
     | '/chat/'
@@ -144,13 +144,13 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/portfolio'
     | '/api/chat'
     | '/business/advisor'
     | '/business/invoices'
     | '/chat/$threadId'
     | '/individual/health'
     | '/individual/loans'
-    | '/individual/portfolio'
     | '/individual/vault'
     | '/business'
     | '/chat'
@@ -158,13 +158,13 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/portfolio'
     | '/api/chat'
     | '/business/advisor'
     | '/business/invoices'
     | '/chat/$threadId'
     | '/individual/health'
     | '/individual/loans'
-    | '/individual/portfolio'
     | '/individual/vault'
     | '/business/'
     | '/chat/'
@@ -173,13 +173,13 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PortfolioRoute: typeof PortfolioRoute
   ApiChatRoute: typeof ApiChatRoute
   BusinessAdvisorRoute: typeof BusinessAdvisorRoute
   BusinessInvoicesRoute: typeof BusinessInvoicesRoute
   ChatThreadIdRoute: typeof ChatThreadIdRoute
   IndividualHealthRoute: typeof IndividualHealthRoute
   IndividualLoansRoute: typeof IndividualLoansRoute
-  IndividualPortfolioRoute: typeof IndividualPortfolioRoute
   IndividualVaultRoute: typeof IndividualVaultRoute
   BusinessIndexRoute: typeof BusinessIndexRoute
   ChatIndexRoute: typeof ChatIndexRoute
@@ -193,6 +193,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio': {
+      id: '/portfolio'
+      path: '/portfolio'
+      fullPath: '/portfolio'
+      preLoaderRoute: typeof PortfolioRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/chat': {
@@ -258,13 +265,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndividualLoansRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/individual/portfolio': {
-      id: '/individual/portfolio'
-      path: '/individual/portfolio'
-      fullPath: '/individual/portfolio'
-      preLoaderRoute: typeof IndividualPortfolioRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/individual/vault': {
       id: '/individual/vault'
       path: '/individual/vault'
@@ -277,13 +277,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PortfolioRoute: PortfolioRoute,
   ApiChatRoute: ApiChatRoute,
   BusinessAdvisorRoute: BusinessAdvisorRoute,
   BusinessInvoicesRoute: BusinessInvoicesRoute,
   ChatThreadIdRoute: ChatThreadIdRoute,
   IndividualHealthRoute: IndividualHealthRoute,
   IndividualLoansRoute: IndividualLoansRoute,
-  IndividualPortfolioRoute: IndividualPortfolioRoute,
   IndividualVaultRoute: IndividualVaultRoute,
   BusinessIndexRoute: BusinessIndexRoute,
   ChatIndexRoute: ChatIndexRoute,
