@@ -43,10 +43,9 @@ import { getPortfolioNews, getQuotes } from "@/lib/portfolio.functions";
 import { createThread, loadThreads, newThreadId, type ChatThread } from "@/lib/chat-storage";
 
 const TABS = [
-  { to: "/individual", label: "Budget planner" },
-  { to: "/individual/loans", label: "Loan comparison" },
-  { to: "/individual/portfolio", label: "Portfolio" },
-  { to: "/individual/vault", label: "Document vault" },
+  { to: "/portfolio", label: "Portfolio" },
+  { to: "/individual", label: "Individual" },
+  { to: "/business", label: "Business" },
   { to: "/chat", label: "FinBuddy" },
 ];
 
@@ -73,7 +72,7 @@ const COLORS = [
   "var(--color-chart-5)",
 ];
 
-export const Route = createFileRoute("/individual/portfolio")({
+export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
       { title: "Portfolio Intelligence — FInvest" },
