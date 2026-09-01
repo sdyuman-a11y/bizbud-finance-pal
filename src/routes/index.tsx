@@ -71,6 +71,25 @@ function Index() {
         </div>
 
         <Link
+          to="/portfolio"
+          className="surface group mt-5 flex items-center justify-between gap-4 p-5 transition-transform hover:-translate-y-1"
+        >
+          <span className="flex items-center gap-4">
+            <span className="ink-panel flex size-11 items-center justify-center rounded-xl">
+              <LineChart className="size-5" />
+            </span>
+            <span>
+              <span className="block text-lg font-semibold">Portfolio intelligence</span>
+              <span className="block text-sm text-muted-foreground">
+                Holdings, live value and gain/loss, allocation and sector charts, plus news ranked
+                by how much of your portfolio it touches.
+              </span>
+            </span>
+          </span>
+          <ArrowRight className="size-4 shrink-0 transition-transform group-hover:translate-x-1" />
+        </Link>
+
+        <Link
           to="/chat"
           className="surface group mt-5 flex items-center justify-between gap-4 p-5 transition-transform hover:-translate-y-1"
         >
