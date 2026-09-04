@@ -6,13 +6,13 @@ import { HeaderControls } from "@/components/header-controls";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Securaflow — Budget, Loan & Cash Flow Assistant" },
+      { title: "FInvest — Budget, Loan & Cash Flow Assistant" },
       {
         name: "description",
         content:
-          "Securaflow is a financial assistant for individuals and businesses: budget planning, loan comparison, cash flow analysis and lending decisions.",
+          "FInvest is a financial assistant for individuals and businesses: budget planning, loan comparison, cash flow analysis and lending decisions.",
       },
-      { property: "og:title", content: "Securaflow — Budget, Loan & Cash Flow Assistant" },
+      { property: "og:title", content: "FInvest — Budget, Loan & Cash Flow Assistant" },
       {
         property: "og:description",
         content:
@@ -33,7 +33,7 @@ function Index() {
           <span className="ink-panel flex size-9 items-center justify-center rounded-xl">
             <Wallet className="size-4.5" />
           </span>
-          <span className="font-display text-lg font-semibold tracking-tight">Securaflow</span>
+          <span className="font-display text-lg font-semibold tracking-tight">FInvest</span>
         </div>
         <HeaderControls />
       </header>
@@ -49,7 +49,7 @@ function Index() {
           worked out on paper.
         </h1>
         <p className="mt-4 max-w-xl text-sm text-muted-foreground sm:text-base">
-          Tell us who you are and Securaflow opens the right desk — a household budget and loan bench,
+          Tell us who you are and FInvest opens the right desk — a household budget and loan bench,
           or a business cash flow and lending review.
         </p>
 

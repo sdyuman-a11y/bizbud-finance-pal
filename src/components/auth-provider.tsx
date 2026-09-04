@@ -24,7 +24,7 @@ const AuthContext = createContext<AuthValue>({
   setAuthOpen: () => {},
 });
 
-const DISMISS_KEY = "securaflow.auth-prompt-dismissed";
+const DISMISS_KEY = "finvest.auth-prompt-dismissed";
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);

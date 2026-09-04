@@ -10,12 +10,12 @@ export const Route = createFileRoute("/chat/")({
       {
         name: "description",
         content:
-          "FinBuddy is Securaflow's AI assistant for logical reasoning, puzzles, budgeting and lending questions.",
+          "FinBuddy is FInvest's AI assistant for logical reasoning, puzzles, budgeting and lending questions.",
       },
       { property: "og:title", content: "FinBuddy | AI Logic & Finance Assistant" },
       {
         property: "og:description",
-        content: "Chat with Securaflow's AI for logic problems and money decisions.",
+        content: "Chat with FInvest's AI for logic problems and money decisions.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

@@ -75,13 +75,13 @@ const COLORS = [
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
-      { title: "Portfolio Intelligence — Securaflow" },
+      { title: "Portfolio Intelligence — FInvest" },
       {
         name: "description",
         content:
           "Track stock and ETF holdings, see live value, gain/loss, allocation and sector mix, plus the latest financial news affecting your portfolio.",
       },
-      { property: "og:title", content: "Portfolio Intelligence — Securaflow" },
+      { property: "og:title", content: "Portfolio Intelligence — FInvest" },
       {
         property: "og:description",
         content:
