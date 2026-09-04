@@ -8,7 +8,7 @@ import type { NewsItem, Quote } from "@/lib/portfolio";
  */
 
 const UA =
-  "Mozilla/5.0 (compatible; FInvestPortfolio/1.0; +https://lovable.dev) AppleWebKit/537.36";
+  "Mozilla/5.0 (compatible; SecuraFlowPortfolio/1.0; +https://lovable.dev) AppleWebKit/537.36";
 
 function cleanTickers(input: unknown): string[] {
   if (!Array.isArray(input)) return [];

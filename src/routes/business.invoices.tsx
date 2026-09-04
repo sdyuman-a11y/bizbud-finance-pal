@@ -28,13 +28,13 @@ const TABS = [
 export const Route = createFileRoute("/business/invoices")({
   head: () => ({
     meta: [
-      { title: "Smart Invoice Assistant — FInvest" },
+      { title: "Smart Invoice Assistant — SecuraFlow" },
       {
         name: "description",
         content:
           "Create invoices, flag fake or suspicious ones, predict late payments, send reminders and analyze customer payment behaviour.",
       },
-      { property: "og:title", content: "Smart Invoice Assistant — FInvest" },
+      { property: "og:title", content: "Smart Invoice Assistant — SecuraFlow" },
       {
         property: "og:description",
         content: "Invoice creation, fraud detection, late-payment prediction and customer payment analytics.",
