@@ -90,7 +90,7 @@ export function AuthDialog() {
             <Wallet className="size-5" />
           </span>
           <DialogTitle className="font-display text-2xl">
-            {mode === "signin" ? "Sign in to FInvest" : "Create your FInvest account"}
+            {mode === "signin" ? "Sign in to SecuraFlow" : "Create your SecuraFlow account"}
           </DialogTitle>
           <DialogDescription>
             Save your budgets, loan comparisons and chats across devices. You can also keep browsing

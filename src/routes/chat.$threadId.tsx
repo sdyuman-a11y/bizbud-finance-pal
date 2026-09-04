@@ -15,13 +15,13 @@ export const Route = createFileRoute("/chat/$threadId")({
   component: ChatThreadPage,
   head: () => ({
     meta: [
-      { title: "FinBuddy | FInvest AI Assistant" },
+      { title: "FinBuddy | SecuraFlow AI Assistant" },
       {
         name: "description",
         content:
-          "Ask FinBuddy logical thinking questions, puzzles and finance problems inside FInvest.",
+          "Ask FinBuddy logical thinking questions, puzzles and finance problems inside SecuraFlow.",
       },
-      { property: "og:title", content: "FinBuddy | FInvest AI Assistant" },
+      { property: "og:title", content: "FinBuddy | SecuraFlow AI Assistant" },
       {
         property: "og:description",
         content: "Step-by-step reasoning for logic puzzles, budgets and loans.",
