@@ -48,13 +48,13 @@ type Doc = {
 export const Route = createFileRoute("/individual/vault")({
   head: () => ({
     meta: [
-      { title: "Personal Document Vault — FInvest" },
+      { title: "Personal Document Vault — Securaflow" },
       {
         name: "description",
         content:
-          "Securely store loan agreements, bills, receipts, insurance documents and other important financial files in your private FInvest vault.",
+          "Securely store loan agreements, bills, receipts, insurance documents and other important financial files in your private Securaflow vault.",
       },
-      { property: "og:title", content: "Personal Document Vault — FInvest" },
+      { property: "og:title", content: "Personal Document Vault — Securaflow" },
       {
         property: "og:description",
         content: "A private, encrypted-at-rest home for your loan agreements, bills, receipts and insurance papers.",

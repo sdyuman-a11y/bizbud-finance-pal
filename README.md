@@ -1,6 +1,6 @@
-# FInvest Financial Assistant
+# Securaflow Financial Assistant
 
-Build a financial assistant application called "FInvest". The app should first ask users whether they are an Individual or Business.
+Build a financial assistant application called "Securaflow". The app should first ask users whether they are an Individual or Business.
 
 Individual users should have:
 

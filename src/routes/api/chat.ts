@@ -2,7 +2,7 @@ import { createLovableAiGatewayProvider } from "@/lib/ai-gateway.server";
 import { createFileRoute } from "@tanstack/react-router";
 import { convertToModelMessages, streamText, type UIMessage } from "ai";
 
-const SYSTEM_PROMPT = `You are FinBuddy, the AI assistant inside FInvest, a financial assistant app.
+const SYSTEM_PROMPT = `You are FinBuddy, the AI assistant inside Securaflow, a financial assistant app.
 You excel at logical thinking: puzzles, riddles, deductions, math, probability, and step-by-step reasoning.
 You also answer personal finance and small-business questions (budgeting, loans/EMI, cash flow, lending risk).
 Always reason carefully and show the key steps of your logic before stating the final answer clearly.
@@ -25,7 +25,7 @@ export const Route = createFileRoute("/api/chat")({
 
         const grounding =
           typeof context === "string" && context.trim()
-            ? `\n\nThe user is viewing their FInvest portfolio. Use ONLY the data below for anything about their holdings, prices or news. Never invent prices, holdings, headlines or statistics; if the data is not present, say so.\n\n${context.slice(0, 12000)}`
+            ? `\n\nThe user is viewing their Securaflow portfolio. Use ONLY the data below for anything about their holdings, prices or news. Never invent prices, holdings, headlines or statistics; if the data is not present, say so.\n\n${context.slice(0, 12000)}`
             : "";
 
         const gateway = createLovableAiGatewayProvider(key);
