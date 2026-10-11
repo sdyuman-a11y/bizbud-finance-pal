@@ -15,6 +15,7 @@ import { ThemeProvider } from "../lib/theme";
 import { AuthProvider } from "../components/auth-provider";
 import { AuthDialog } from "../components/auth-dialog";
 import { Toaster } from "../components/ui/sonner";
+import { SideArtwork } from "../components/side-artwork";
 
 
 function NotFoundComponent() {
@@ -132,6 +133,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
         <AuthProvider>
+          <SideArtwork />
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
           <Outlet />
           <AuthDialog />
