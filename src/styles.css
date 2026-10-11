@@ -232,11 +232,16 @@ body {
 .side-artwork-left img { right: 0; }
 .side-artwork-right { right: 0; }
 .side-artwork-right img { left: 0; transform: scaleX(-1); }
-.dark .side-artwork-rail { opacity: 0.4; filter: brightness(1.7) saturate(0.65); }
+.dark .side-artwork-rail {
+  opacity: 0.14;
+  filter: saturate(0.45);
+  mask-image: linear-gradient(to bottom, transparent, var(--foreground) 18%, var(--foreground) 78%, transparent);
+}
 
 @media (max-width: 1199px) {
   .side-artwork-rail { width: 22px; opacity: 0.18; }
   .side-artwork-rail img { width: 100px; }
+  .dark .side-artwork-rail { opacity: 0.08; }
 }
 
 @media (max-width: 639px) {
