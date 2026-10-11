@@ -6,6 +6,7 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
@@ -15,7 +16,6 @@ import { ThemeProvider } from "../lib/theme";
 import { AuthProvider } from "../components/auth-provider";
 import { AuthDialog } from "../components/auth-dialog";
 import { Toaster } from "../components/ui/sonner";
-import { SideArtwork } from "../components/side-artwork";
 
 
 function NotFoundComponent() {
@@ -40,7 +40,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -133,7 +133,6 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
         <AuthProvider>
-          <SideArtwork />
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
           <Outlet />
           <AuthDialog />

@@ -9,4 +9,3 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-- Keep decorative side artwork in a shared, non-interactive root layer with gutter-only clipping so all pages retain usable controls and unobstructed content.
