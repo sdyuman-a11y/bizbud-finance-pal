@@ -47,7 +47,7 @@ function LoanComparison() {
     setBanks((p) => p.map((b) => (b.id === id ? { ...b, ...patch } : b)));
 
   const results = useMemo(
-    () => banks.map((b) => ({ bank: b, ...evaluateLoan(b) })),
+    () => banks.map((b: Bank) => ({ bank: b, ...evaluateLoan(b) })),
     [banks],
   );
   const best = results.reduce<(typeof results)[number] | null>(
