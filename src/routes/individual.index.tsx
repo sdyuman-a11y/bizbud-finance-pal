@@ -12,6 +12,7 @@ import {
   ResponsiveContainer,
   CartesianGrid,
 } from "recharts";
+import { usePersistentState } from "@/hooks/use-persistent-state";
 import { AppShell, Field, Stat } from "@/components/app-shell";
 import { analyzeBudget, currency, num, pct } from "@/lib/finance";
 
@@ -55,7 +56,7 @@ const CHART_COLORS = [
 ];
 
 function BudgetPlanner() {
-  const [f, setF] = useState({
+  const [f, setF] = usePersistentState("finbuddy-budget", {
     income: "5200",
     housing: "1500",
     food: "600",
