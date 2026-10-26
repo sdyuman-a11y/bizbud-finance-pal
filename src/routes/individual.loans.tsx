@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Plus, Trash2, Trophy } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
+import { usePersistentState } from "@/hooks/use-persistent-state";
 import { AppShell, Field, Stat } from "@/components/app-shell";
 import { currency, evaluateLoan, type Bank } from "@/lib/finance";
 
@@ -40,13 +41,13 @@ const initial: Bank[] = [
 ];
 
 function LoanComparison() {
-  const [banks, setBanks] = useState<Bank[]>(initial);
+  const [banks, setBanks] = usePersistentState<Bank[]>("securaflow-loans", initial);
 
   const update = (id: string, patch: Partial<Bank>) =>
     setBanks((p) => p.map((b) => (b.id === id ? { ...b, ...patch } : b)));
 
   const results = useMemo(
-    () => banks.map((b) => ({ bank: b, ...evaluateLoan(b) })),
+    () => banks.map((b: Bank) => ({ bank: b, ...evaluateLoan(b) })),
     [banks],
   );
   const best = results.reduce<(typeof results)[number] | null>(

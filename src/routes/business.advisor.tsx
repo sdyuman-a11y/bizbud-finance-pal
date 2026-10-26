@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { CheckCircle2, AlertTriangle, XCircle } from "lucide-react";
+import { usePersistentState } from "@/hooks/use-persistent-state";
 import { AppShell, Field, Stat } from "@/components/app-shell";
 import { adviseClient, currency, num, pct } from "@/lib/finance";
 
@@ -33,7 +34,7 @@ export const Route = createFileRoute("/business/advisor")({
 });
 
 function AdvisorPage() {
-  const [f, setF] = useState({
+  const [f, setF] = usePersistentState("securaflow-advisor", {
     name: "Larkspur Bakery Ltd.",
     monthlyIncome: "18000",
     existingDebt: "3200",

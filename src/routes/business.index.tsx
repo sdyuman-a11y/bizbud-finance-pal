@@ -12,6 +12,7 @@ import {
   ResponsiveContainer,
   CartesianGrid,
 } from "recharts";
+import { usePersistentState } from "@/hooks/use-persistent-state";
 import { AppShell, Field, Stat } from "@/components/app-shell";
 import { analyzeCashflow, currency, num, pct, type CashflowMonth } from "@/lib/finance";
 
@@ -53,8 +54,8 @@ const initial: CashflowMonth[] = [
 ];
 
 function CashflowPage() {
-  const [opening, setOpening] = useState("30000");
-  const [rows, setRows] = useState<CashflowMonth[]>(initial);
+  const [opening, setOpening] = usePersistentState("securaflow-cash-opening", "30000");
+  const [rows, setRows] = usePersistentState<CashflowMonth[]>("securaflow-cashflow", initial);
 
   const update = (id: string, patch: Partial<CashflowMonth>) =>
     setRows((p) => p.map((r) => (r.id === id ? { ...r, ...patch } : r)));
